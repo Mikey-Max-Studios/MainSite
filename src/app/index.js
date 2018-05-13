@@ -13,10 +13,6 @@ class App extends PureComponent {
                         exact
                         render={ () => <Homepage /> }
                     />
-                    <Route
-                        path='/test'
-                        render={ () => <div> {'hello'} </div>}
-                    />
                 </div>
             </Router>
         );
