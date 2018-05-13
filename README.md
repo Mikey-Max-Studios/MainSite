@@ -1,4 +1,4 @@
-# react-redux-beamery-starter
+# react-redux-starter
 
 Beamery React Starter, is an opinionated way of building a react application. While providing all the necessary tools for development in a cooperative and scalable environment.
 
@@ -18,21 +18,21 @@ Beamery React Starter, is an opinionated way of building a react application. Wh
 The port is listening on 4000
 
 ## Core Concepts
-Before starting to work with Beamery React Starter there are a few concepts you should consider: 
+Before starting to work with Beamery React Starter there are a few concepts you should consider:
 
 #### Each file should only have one concern
 
-Making each file with a single concern, makes the code more predictable. That way you can start seeing patterns in file naming, avoid conflicting logic and easier debugging in general; since you can narrow where the problem might came from. 
+Making each file with a single concern, makes the code more predictable. That way you can start seeing patterns in file naming, avoid conflicting logic and easier debugging in general; since you can narrow where the problem might came from.
 
 #### Respect Naming
 
-Naming plays a big role in this starter, it’s important that you enforce the correct naming for each concern. 
+Naming plays a big role in this starter, it’s important that you enforce the correct naming for each concern.
 
 #### Reflect as much as possible on state
 
-Everything that is interactive and not static should be reflected on the state. This way you can guarantee a good application flow, where at each moment you can register the changes that are happening to your application. 
+Everything that is interactive and not static should be reflected on the state. This way you can guarantee a good application flow, where at each moment you can register the changes that are happening to your application.
 
-#### File Splitting 
+#### File Splitting
 
 Avoid having huge files (more than 200 lines === “HUUUUGEE”) , because at one point somebody else is going to work on that file and is not going to take any immediate conclusion out of it. If you are having different concerns on the same file, then you are breaking the first concept of “one concern per file”. When it’s the same concern but the file is to big you start doing file splitting. The main idea is that you create a folder, with the name of the old file, and add an index.js which is the export that contains the imports of the file division you made.
 
@@ -70,13 +70,13 @@ App
   |     - component.js
   - index.js
 ```
-Under this model, our index.js at the app level should contain Component A & Component B. While the index.js at Component B level should contain Sub-component B and so on. The idea is that the components are encapsulated in a way that if I want to use my App Component and all the components that are contained in App Component, I just need to export one file (the index.js at the app folder level). 
+Under this model, our index.js at the app level should contain Component A & Component B. While the index.js at Component B level should contain Sub-component B and so on. The idea is that the components are encapsulated in a way that if I want to use my App Component and all the components that are contained in App Component, I just need to export one file (the index.js at the app folder level).
 
-## How to create a Component 
+## How to create a Component
 
 ##### 1. Create a folder with the component name in src
 ##### 2. Create the index.js file inside your component folder
-In the index.js you can either have your component directly (case it doesn’t need to connect to the redux store), or if you want to make it more explicit, import and export the component.js into index.js 
+In the index.js you can either have your component directly (case it doesn’t need to connect to the redux store), or if you want to make it more explicit, import and export the component.js into index.js
 
 Case you need to connect to the store use the following boilerplate code.
 
@@ -127,7 +127,7 @@ export const defaultProps = {
   myProps: {}
 }
 ```
-*component.js* 
+*component.js*
 ```
 import React, { PureComponent } from 'react';
 import { typings , defaultProps } from './typings';
@@ -135,7 +135,7 @@ import { typings , defaultProps } from './typings';
 class Component extends PureComponent {
     static defaultProps = defaultProps
     static propTypes = typings;
-    
+
     render () {
         return (
             <div>
@@ -154,7 +154,7 @@ This project uses Redux as a state manager. The pattern goes as following:
 
 1. Create action in Action folder
 2. BindActions to component
-3. Dispatch Actions from component 
+3. Dispatch Actions from component
 4. Make the necessary modification in reducer
 5. return an imuttable object with the final state change
 
@@ -183,7 +183,7 @@ export const makeRequestFailedSagas = (data) => (
 );
 ```
 ##### 2. BindAction Async to component
-``` 
+```
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { makeRequestAsyncSagas } from 'store/nameOfStateContainer/actions';
@@ -213,12 +213,12 @@ import React, { Component } from 'react';
 
 class Component extends Component {
     makeRequest = () => this.props.actions.makeRequestSagas();
-    
+
     render () {
         return (
             <button
                onClick={this.makeRequest}
-            /> 
+            />
         );
     }
 }
@@ -231,8 +231,8 @@ export const requestMakerSagas = [
     takeEvery(requestMakerActionsTypes.MAKE_REQUEST_ASYNC_SAGAS, load)
 ];
 ```
-##### 5. from the triggered function in effect.js dispatch ActionSuccess or ActionFail 
-``` 
+##### 5. from the triggered function in effect.js dispatch ActionSuccess or ActionFail
+```
 function * load (action) {
     try {
         const request = yield fetch(
@@ -308,7 +308,7 @@ export function makeAsyncWithThunk () {
         }
     };
 }
-``` 
+```
 ##### 2. Create ActionAsync, ActionSuccess, ActionFail in action folder
 ```
 export const makeRequestAsyncThunk = () => (
@@ -332,7 +332,7 @@ export const makeRequestFailedThunk = (data) => (
 );
 ```
 ##### 3. Bind function to component
-``` 
+```
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { makeAsyncWithThunk } from 'store/nameOfStateContainer/effects';
@@ -362,12 +362,12 @@ import React, { Component } from 'react';
 
 class Component extends Component {
     makeRequest = () => this.props.actions.makeRequestAsyncThunk();
-    
+
     render () {
         return (
             <button
                onClick={this.makeRequest}
-            /> 
+            />
         );
     }
 }
@@ -404,16 +404,16 @@ const reducer = {
 ```
 ##### 7. return an imuttable object with the final state change
 
-## Naming Glossary 
+## Naming Glossary
 
-#### index.js 
-this is the file in folder that gets exported to other folders. The logic is that the folder where you’ll be importing this file needs to contain it and not the other way around. 
+#### index.js
+this is the file in folder that gets exported to other folders. The logic is that the folder where you’ll be importing this file needs to contain it and not the other way around.
 
-#### component.js 
+#### component.js
 where all your component logic goes. Everything that is not directly related to component logic should not be in this file (connect to redux-store, typings, styles, should not be in this file)
 
 #### style.js
 all your styles at the component level (this basically means you are using this to style the component in the same directory).
 
-#### typings.js 
-all properties must be typed. The common use is to import this file to the component.js file in the same directory, and add it as a static attribute. 
+#### typings.js
+all properties must be typed. The common use is to import this file to the component.js file in the same directory, and add it as a static attribute.
