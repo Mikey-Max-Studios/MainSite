@@ -7,7 +7,7 @@ class Homepage extends PureComponent {
     render () {
         return (
             <div className={`${styles['title-text']} ${styles.rotating}`}>
-                MCC
+                <img src="/app/homepage/MMC_Logo1.png" alt='bantz'/>
             </div>
         );
     }
