@@ -7,7 +7,7 @@ class Homepage extends PureComponent {
     render () {
         return (
             <div className={`${styles['title-text']} ${styles.rotating}`}>
-                MCC
+                MCC - And it's Live!
             </div>
         );
     }
