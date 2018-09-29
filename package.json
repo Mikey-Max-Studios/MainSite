@@ -1,167 +1,22 @@
 {
-  "name": "beamery-react-starter",
-  "description": "starting point of any beamery react app",
-  "repository": {
-    "type": "git"
-  },
+  "name": "new",
   "version": "1.0.0",
-  "author": "Beamery",
+  "description": "",
+  "keywords": [],
+  "main": "src/index.js",
   "dependencies": {
-    "case-sensitive-paths-webpack-plugin": "2.1.1",
-    "chalk": "1.1.3",
-    "css-loader": "0.28.4",
-    "dotenv": "4.0.0",
-    "file-loader": "0.11.2",
-    "html-webpack-plugin": "2.29.0",
-    "jest": "20.0.4",
-    "js-cookie": "^2.2.0",
-    "moment": "^2.20.1",
-    "node-sass": "^4.5.3",
-    "normalize-scss": "^7.0.0",
-    "object-assign": "4.1.1",
-    "postcss-flexbugs-fixes": "3.2.0",
-    "postcss-loader": "2.0.6",
-    "promise": "8.0.1",
-    "prop-types": "^15.6.0",
-    "react": "^16.3.1",
-    "react-dev-utils": "^3.1.0",
-    "react-dom": "^16.0.0",
-    "react-error-overlay": "^1.0.10",
-    "react-redux": "^5.0.6",
-    "react-router-dom": "^4.2.2",
-    "redux": "^3.7.0",
-    "redux-devtools-extension": "^2.13.0",
-    "redux-saga": "^0.16.0",
-    "redux-thunk": "^2.2.0",
-    "single-spa-react": "^2.2.0",
-    "sw-precache-webpack-plugin": "0.11.4",
-    "url-loader": "0.5.9",
-    "whatwg-fetch": "2.0.3"
+    "react": "16.4.2",
+    "react-art": "16.4.2",
+    "react-dom": "16.4.2",
+    "react-native": "0.56.0",
+    "react-native-web": "0.8.9",
+    "react-scripts": "1.1.4"
   },
-  "devDependencies": {
-    "@storybook/addon-actions": "^3.4.0",
-    "@storybook/addon-links": "^3.4.0",
-    "@storybook/react": "^3.4.0",
-    "ajv": "^6.4.0",
-    "autoprefixer": "7.1.2",
-    "babel-core": "^6.25.0",
-    "babel-eslint": "^8.0.2",
-    "babel-jest": "^20.0.3",
-    "babel-loader": "7.1.1",
-    "babel-plugin-react-css-modules": "^3.3.3",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-decorators-legacy": "^1.3.4",
-    "babel-plugin-transform-regenerator": "^6.26.0",
-    "babel-plugin-webpack-alias": "^2.1.2",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-react-app": "^3.0.2",
-    "babel-preset-stage-0": "^6.24.1",
-    "babel-runtime": "6.23.0",
-    "clean-webpack-plugin": "^0.1.18",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-15": "^1.0.5",
-    "enzyme-adapter-react-16": "^1.1.1",
-    "eslint": "^4.10.0",
-    "eslint-config-airbnb": "^15.1.0",
-    "eslint-config-prettier": "^2.7.0",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-loader": "1.9.0",
-    "eslint-plugin-babel": "^4.1.2",
-    "eslint-plugin-flowtype": "2.35.0",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-jsx-a11y": "^5.1.1",
-    "eslint-plugin-node": "^5.2.1",
-    "eslint-plugin-prettier": "^2.3.1",
-    "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-react": "^7.5.1",
-    "eslint-plugin-standard": "^3.0.1",
-    "extract-text-webpack-plugin": "3.0.0",
-    "husky": "^0.14.3",
-    "jest": "^20.0.4",
-    "lint-staged": "^4.3.0",
-    "node-plop": "^0.5.5",
-    "plop": "^1.7.4",
-    "postcss": "^6.0.21",
-    "postcss-scss": "^1.0.5",
-    "prettier": "^1.8.0",
-    "react-addons-test-utils": "^15.6.2",
-    "react-test-renderer": "^16.3.2",
-    "redux-mock-store": "^1.5.1",
-    "sass-loader": "^6.0.6",
-    "sinon": "^4.5.0",
-    "uglifyjs-webpack-plugin": "^1.2.2",
-    "webpack": "3.5.1",
-    "webpack-dashboard": "^1.0.0-2",
-    "webpack-dev-server": "2.7.1",
-    "webpack-manifest-plugin": "1.2.1"
-  },
+  "devDependencies": {},
   "scripts": {
-    "watch": "NODE_ENV=development webpack --config ./config/webpack.bmr.dev.config.js -w",
-    "dist": "NODE_ENV=production node --max_old_space_size=4096 ./node_modules/webpack/bin/webpack.js --config ./config/webpack.bmr.dist.config.js",
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "jest",
-    "prettier": "prettier --single-quote --print-width=120 --trailing-comma es5 --no-semi",
-    "format": "npm run prettier -- --write '{,!(build|generators)/**/}*.js'",
-    "precommit": "lint-staged",
-    "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
-    "lint": "eslint **/*.js --quiet",
-    "lint-fix": "eslint --fix",
-    "generate": "plop --plopfile generators/index.js",
-    "storybook": "start-storybook -p 3000 -c .storybook",
-    "build-storybook": "build-storybook"
-  },
-  "lint-staged": {
-    "{,!(build|generators)/**/}*.js": [
-      "npm run lint-fix",
-      "git add"
-    ]
-  },
-  "engines": {
-    "npm": ">=4",
-    "node": ">=6"
-  },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx}"
-    ],
-    "setupFiles": [
-      "<rootDir>/config/polyfills.js"
-    ],
-    "setupTestFrameworkScriptFile": "<rootDir>/config/jest/enzymeAdapter.js",
-    "testMatch": [
-      "<rootDir>/src/**/__tests__/**/*.js?(x)",
-      "<rootDir>/src/**/?(*.)(spec|test).js?(x)"
-    ],
-    "testEnvironment": "node",
-    "testURL": "http://localhost",
-    "transform": {
-      "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest",
-      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
-      "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
-    },
-    "transformIgnorePatterns": [
-      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
-    ],
-    "moduleNameMapper": {
-      "^react-native$": "react-native-web"
-    },
-    "moduleFileExtensions": [
-      "web.js",
-      "js",
-      "json",
-      "web.jsx",
-      "jsx",
-      "node"
-    ]
-  },
-  "babel": {
-    "presets": [
-      "react-app"
-    ]
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   }
 }
